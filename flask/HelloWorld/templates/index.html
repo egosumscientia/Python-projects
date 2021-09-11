@@ -1,0 +1,38 @@
+{% extends 'maestra.html' %}
+{% block titulo %}Mi primera pagina con FLASK{% endblock %}
+{% block contenido %}
+
+    <h2>{{data.subtitulo}}{{data.usuario}}</h2>
+    <br>
+    <!-- {% if data.cantVehiculos > 0 %}
+        <ul>
+            {% for vehiculo in data.vehiculos %}
+            <li>{{vehiculo}}</li>
+            {% endfor %}
+        </ul>
+        <div>Referencia de Renault: {{data.referencias[1]}}</div>
+    {% else %}
+        <h3>No existen vehiculos para mostrar</h3>
+    {% endif %} -->
+    <ul>
+        {% for vehiculo in data.vehiculos %}
+            {% set i=0 %}
+            {% if i<5 %}
+                <li>{{vehiculo}}:{{data.referencias[loop.index-1]}}</li> 
+            {% endif %}
+            {% set i=i+1 %}
+        {% endfor %}
+
+    </ul>
+    <select>
+        {% for vehiculo in data.vehiculos %}
+        <option value="{{vehiculo}}">{{vehiculo}}</option>
+        {% endfor %}
+    </select>
+    <table class='table table-hover table-bordered'>
+        {% for vehiculo in data.vehiculos %}
+        <tr><td>{{vehiculo}}</td></tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

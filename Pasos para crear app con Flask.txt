@@ -1,4 +1,4 @@
-1. Crear una carpeta para la aplicación
+1. Crear una carpeta para la aplicaciï¿½n
 2. Instalar virtualenv de manera global 
    en el sistema operativo:
 
@@ -11,29 +11,29 @@
 	virtualenv -p python env 
 
 4. Activar el entorno virtual con el siguiente
-   comando (se puede autocompletar presionando tab
-   al ir escribiendo la ruta:
+  comando (se puede autocompletar presionando tab
+  al ir escribiendo la ruta:
 
 	.\env\Scripts\activate
 
 	aparece un prompt con inicio
 	(env) D:\ProyFlask\Demo1> (por ejemplo)
 
-5. Ejecutar la siguiente instrucción dentro del entorno
+5. Ejecutar la siguiente instrucciï¿½n dentro del entorno
 	
 	pip list
 
 6. Instalar el paquete de flask, con la siguiente
-   instrucción:
+  instrucciï¿½n:
 	
 	pip install flask
 
 7. Ejecutar: pip list  para listar paquetes
-   dentro del proyecto
+  dentro del proyecto
 
 8. Crear una carpeta (dentro del proyecto), preferiblemente con el nombre app:
 9. Dentro de la carpeta app, se crea un archivo llamado app.py
-   Este archivo debe tener el siguiente codigo (básico):
+  Este archivo debe tener el siguiente codigo (bï¿½sico):
 	
 	from flask import Flask
 
@@ -41,17 +41,17 @@
 
 	#__name__ es un workspace
 
-	# "__main__" es el nombre del ámbito en el que se ejecuta el 
-	# código de nivel superior (tu programa principal)
+	# "__main__" es el nombre del ï¿½mbito en el que se ejecuta el 
+	# cï¿½digo de nivel superior (tu programa principal)
 
-	# El intérprete pasa el valor del atributo __name__ a la cadena '__main__'
+	# El intï¿½rprete pasa el valor del atributo __name__ a la cadena '__main__'
 
 	# Chequear si estamos en el archivo inicial main
 	if __name__ == "__main__":
-    	app.run()
+    app.run()
 	
-10. Ejecutar la app a través de la siguiente
-    instrucción:
+10. Ejecutar la app a travï¿½s de la siguiente
+    instrucciï¿½n:
 
 	python .\app\app.py
 
@@ -69,84 +69,84 @@
 	#Crear la ruta de inicio o home page
 	@app.route('/') # decorador para la ruta inicio
 	def index():
-    		return '<h1>Hola mundo desde Flask 3</h1>'
+    return '<h1>Hola mundo desde Flask 3</h1>'
 
 	# Chequear si estamos en el archivo inicial main
 	if __name__ == "__main__":
-    		app.run(debug=True,port=5200) ## para activar modo de depuración para tomar actualizaciones del codigo
+    app.run(debug=True,port=5200) ## para activar modo de depuraciï¿½n para tomar actualizaciones del codigo
     
 13. Dentro de la carpeta app, crear una subcarpeta llamada
     templates
 14. En la carpeta templates, crear un archivo con el nombre
     index.html (con cualquier info)
 15. Modificar el archivo app.py, para que pueda invocar 
-    el archivo index.html que está en la carpeta templates
+    el archivo index.html que estï¿½ en la carpeta templates
     Recordar importar render_template
 
 	from flask import Flask,render_template
 
 	#__name__ es un workspace
 
-	# "__main__" es el nombre del ámbito en el que se ejecuta el 
-	# código de nivel superior (tu programa principal)
+	# "__main__" es el nombre del ï¿½mbito en el que se ejecuta el 
+	# cï¿½digo de nivel superior (tu programa principal)
 
-	# El intérprete pasa el valor del atributo __name__ a la cadena '__main__'
+	# El intï¿½rprete pasa el valor del atributo __name__ a la cadena '__main__'
 	app=Flask(__name__)
 
 	#Crear la ruta de inicio o home page
 	@app.route('/') # decorador para la ruta inicio
 		def index():
-    			# return '<h1>Hola mundo desde Flask</h1>'
-    			return render_template('index.html')
+        # return '<h1>Hola mundo desde Flask</h1>'
+        return render_template('index.html')
 
 	# Chequear si estamos en el archivo inicial main
 	if __name__ == "__main__":
-    		app.run(debug=True,port=5100) ## para activar modo de depuración para tomar actualizaciones del codigo
+    app.run(debug=True,port=5100) ## para activar modo de depuraciï¿½n para tomar actualizaciones del codigo
     
-16. En el archivo app.py, pasar datos al archivo index.html para que sea dinámica la página:
+16. En el archivo app.py, pasar datos al archivo index.html para que sea dinï¿½mica la pï¿½gina:
 	
 from flask import Flask,render_template
 
 #__name__ es un workspace
 
-# "__main__" es el nombre del ámbito en el que se ejecuta el 
-# código de nivel superior (tu programa principal)
+# "__main__" es el nombre del ï¿½mbito en el que se ejecuta el 
+# cï¿½digo de nivel superior (tu programa principal)
 
-# El intérprete pasa el valor del atributo __name__ a la cadena '__main__'
+# El intï¿½rprete pasa el valor del atributo __name__ a la cadena '__main__'
 app=Flask(__name__)
 
 #Crear la ruta de inicio o home page
 @app.route('/') # decorador para la ruta inicio
 def index():
     # return '<h1>Hola mundo desde Flask</h1>'
-    programas = ['Desarrollo de Software','Redes','Sistemas','Video Juegos','Administración']
+    programas = ['Desarrollo de Software','Redes','Sistemas','Video Juegos','Administraciï¿½n']
     """datos = {
-        'titulo':'Sistema Académico',
+        'titulo':'Sistema Acadï¿½mico',
         'bienvenida':'Saludos desde CESDE',
         'programas':programas,
         'cantidadprogs':len(programas)
     }"""
     datos = {
-        'titulo':'Sistema Académico',
+        'titulo':'Sistema Acadï¿½mico',
         'bienvenida':'Saludos desde CESDE',
-        'programas':['Desarrollo de Software','Redes','Sistemas','Video Juegos','Administración','Contaduría'],
+        'programas':['Desarrollo de Software','Redes','Sistemas','Video Juegos','Administraciï¿½n','Contadurï¿½a'],
         'cantidadprogs':len(programas),
         'valorcuota':1200000
         }
     return render_template('index.html',data=datos)
     
-# Ruta para login con parámetro
+# Ruta para login con parï¿½metro
 @app.route("/login/<string:user>/")
 def show_post(user):
     return render_template("login.html", user=user)
 
 # Chequear si estamos en el archivo inicial main
 if __name__ == "__main__":
-    app.run(debug=True,port=5100) ## para activar modo de depuración para tomar actualizaciones del codigo
+    app.run(debug=True,port=5100) ## para activar modo de depuraciï¿½n para tomar actualizaciones del codigo
     
 
 
-17. En el archivo index.html, interpolar (Motor de plantillas Jinja2)la información enviada a este archivo, :
+17. En el archivo index.html, interpolar (Motor de plantillas Jinja2)la informaciï¿½n enviada a este archivo, :
 	
 <!doctype html>
 <html lang="en">
@@ -202,7 +202,7 @@ if __name__ == "__main__":
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
+    <title>Inicio de Sesiï¿½n</title>
 </head>
 <body>
     <h2>{{user}}</h2>
@@ -277,73 +277,73 @@ if __name__ == "__main__":
 Refrescar el navegador para chequear su funcionamiento....
 
 20. Aplicar css y js a la plantilla layout.html para que se herede a las plantillas hijas (index.html)
-	a. Crear, dentro de la carpeta app, un subcarpeta con el nombre static - se tiene que llamar así -
-	(archivos estáticos como css)
+	a. Crear, dentro de la carpeta app, un subcarpeta con el nombre static - se tiene que llamar asï¿½ -
+	(archivos estï¿½ticos como css)
 	b. Crear, dentro de la carpeta static, crear la subcarpetas CSS y JS
-	c. Dentro de la carpeta CSS, crear el archivo layout.css y poner el siguiente código
+	c. Dentro de la carpeta CSS, crear el archivo layout.css y poner el siguiente cï¿½digo
 		body{
     			background-color: orange;
 		}
-	d. Ir a la plantilla layout.html e invocar este archivo con la siguiente instrucción:
+	d. Ir a la plantilla layout.html e invocar este archivo con la siguiente instrucciï¿½n:
 		<link rel="stylesheet" href="{{ url_for('static',filename='css/layout.css')}}">
 		
 		Refrescar el navegador para chequear su funcionamiento....
 	e. Dentro de la carpeta JS, crear un archivo llamado layout.js, por ejemplo, con la siguiente 
-		instrucción:
+		instrucciï¿½n:
 		alert('Hola mundo desde JS');
 	f. Ir al archivo layout.html y antes de cerrar la etiqueta body (</body>), especificar la siguiente
-		instrucción:
+		instrucciï¿½n:
 		<script src="{{ url_for('static',filename='js/layout.js')}}"></script>
 
 		Refrescar el navegador para chequear su funcionamiento....
 
 21. Controlar acceso a recurso (ruta) no encontrado:
-	a. Ir al archivo app.py y agregar la siguiente función:
+	a. Ir al archivo app.py y agregar la siguiente funciï¿½n:
 
 		def pagina_no_encontrada(error):
     			return render_template('404.html'),404
 
-	b. Crear el archivo 404.html, dentro de la carpeta templates, con el siguiente código:
+	b. Crear el archivo 404.html, dentro de la carpeta templates, con el siguiente cï¿½digo:
 		
 		{% extends './layout.html' %}
 
-		{% block title %}Error! Página no Encontrada{% endblock %}
+		{% block title %}Error! Pï¿½gina no Encontrada{% endblock %}
 		{% block body %}
-    			<h2>Ooops, página no encontrada</h2>
+    			<h2>Ooops, pï¿½gina no encontrada</h2>
 		{% endblock %}
-	c. Hacer referencia al manejador de errores, realizando la siguiente instrucción, antes de app.run ...
+	c. Hacer referencia al manejador de errores, realizando la siguiente instrucciï¿½n, antes de app.run ...
 		(archivo app.py):
 		
 		app.register_error_handler(404, pagina_no_encontrada)
-	d. Se puede redireccionar este error de página a una vista o función, de la siguiente manera:
+	d. Se puede redireccionar este error de pï¿½gina a una vista o funciï¿½n, de la siguiente manera:
 		
 		def pagina_no_encontrada(error):
     			#return render_template('404.html'),404
-    			# redireccionar a una vista o función
+    			# redireccionar a una vista o funciï¿½n
     			return redirect(url_for('index'))
 
-		Recordar poner la librería de url_for y redirect en el from ... import, así por ejemplo:
+		Recordar poner la librerï¿½a de url_for y redirect en el from ... import, asï¿½ por ejemplo:
 			from flask import Flask,render_template,url_for,redirect
 			"""from flask.helpers import url_for
 			from werkzeug.utils import redirect"""
-22. Ejecutar unas instrucciones antes y después de una petición (request y response) 
-	con decorador before_request y after_request (archivo app.py, después de app=Flask(__name__)):
+22. Ejecutar unas instrucciones antes y despuï¿½s de una peticiï¿½n (request y response) 
+	con decorador before_request y after_request (archivo app.py, despuï¿½s de app=Flask(__name__)):
 	
 	@app.before_request
 	def before_request():
-    		print("Antes de la petición")
+    		print("Antes de la peticiï¿½n")
 
 	@app.after_request
 	def after_request(response):
-    		print("Despues de la petición")
+    		print("Despues de la peticiï¿½n")
     		return response
-23. Mostrar información, en formato de json (API), de una tabla de base de datos:
+23. Mostrar informaciï¿½n, en formato de json (API), de una tabla de base de datos:
 	a. Instalar, dentro del directorio virtual, el paquete de mysql:
 		pip install flask-mysqldb
 		pip list
 	b. Importar el paquete de mysql en el archivo app.py
 		from flask_mysqldb import MySQL
-	c. Configurar los parametros para la conexión a la base de datos de mysql 
+	c. Configurar los parametros para la conexiï¿½n a la base de datos de mysql 
 		(debajo de app = Flask(__name__):
 		
 		app.config['MYSQL_HOST'] = 'localhost'
@@ -351,7 +351,7 @@ Refrescar el navegador para chequear su funcionamiento....
 		app.config['MYSQL_PASSWORD'] = ''
 		app.config['MYSQL_DB'] = 'company'
 
-		conexion = MySQL(app) # vinculo entre la aplicación y la bd
+		conexion = MySQL(app) # vinculo entre la aplicaciï¿½n y la bd
 
 	d. Crear la ruta para mostrar los datos en formato json (antes de app.register y/o app.run)
 		
@@ -392,7 +392,7 @@ def pagina():
 <body>
     <h1>
         The template has been rendered!!!<br>
-        index es un endpoint o función de una ruta
+        index es un endpoint o funciï¿½n de una ruta
         <a href="{{ url_for('index') }}">Ir a Index</a>
         </h1>
 </body>
