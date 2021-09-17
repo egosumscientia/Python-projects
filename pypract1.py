@@ -18,7 +18,7 @@
 11. Ingresar el nombre de una ciudad y borrarla de la lista ciudades turísticas
 12. Crear una clase con los datos de un vehículo """
 
-""" num = int(input("ingrese un numero: "))
+num = int(input("ingrese un numero: "))
 
 def factorial(num):
     fact = 1
@@ -33,17 +33,17 @@ def factorial(num):
     return fact
 
 
-print(f"El factorial de {num} es {factorial(num)}") """
+print(f"El factorial de {num} es {factorial(num)}")
 
-""" def fib(n):
+def fib(n):
     a, b = 0,1
     while a < n:
         print(a, end=' ')
         a, b = b, a+b
     print()
-fib(1000) """
+fib(1000)
 
-""" prestamo = int(input("Ingrese la cantidad de dinero que ha pedido prestada: "))
+prestamo = int(input("Ingrese la cantidad de dinero que ha pedido prestada: "))
 cuotas = int(input("Ingrese el numero de cuotas: "))
 
 def calcularPago(prestamo, cuotas):
@@ -54,23 +54,23 @@ def calcularPago(prestamo, cuotas):
         print(f"cuota #{c}")
         print(pagoMensual) 
 
-calcularPago(prestamo, cuotas) """
+calcularPago(prestamo, cuotas)
 
-""" my_list = [2, 5, 'DevCode', 1.2, 5]
+my_list = [2, 5, 'DevCode', 1.2, 5]
 
 for n in my_list:
     print(n)
- """
 
-""" thisdict = {
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
+
+thisdict = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
 }
 
-print(thisdict) """
+print(thisdict)
 
-""" dpagos =  {"placa":"tis123","marca":"Aveo","pagos":[100,200,30,400]}
+dpagos =  {"placa":"tis123","marca":"Aveo","pagos":[100,200,30,400]}
 
 def calcularPagoTotal(dpagos):
     cuotas = dpagos["pagos"]
@@ -79,11 +79,10 @@ def calcularPagoTotal(dpagos):
         acumulador += n
     print(acumulador)
 
+calcularPagoTotal(dpagos)
 
-calcularPagoTotal(dpagos) """
 
-
-""" bandName = "Wormkult"
+bandName = "Wormkult"
 Genre = "Death/Black metal"
 Origin = "Colombia"
 Year = 2017
@@ -91,10 +90,10 @@ Year = 2017
 dicWormkult = {"bandName": bandName, "Genre": Genre, "Origin": Origin, "Year": Year}
 
 for key in dicWormkult:
-  print(key, ":", dicWormkult[key]) """
+    print(key, ":", dicWormkult[key])
 
 
-""" numsOneToFifty = []
+numsOneToFifty = []
 
 for n in range(1, 51):
     numsOneToFifty.append(n)
@@ -104,10 +103,10 @@ print(numsOneToFifty)
 for n in numsOneToFifty:
     if n % 2 == 0:
         numsOneToFifty.remove(n)
-print(numsOneToFifty) """
+print(numsOneToFifty)
 
 
-""" placa = "ABC123"
+placa = "ABC123"
 marca =  "Renault"
 modelo = 2020
 valor = 25000
@@ -115,9 +114,9 @@ valor = 25000
 car = {"placa": placa, "marca":marca, "modelo": modelo, "valor": valor}
 
 for key in car:
-    print(key, ":", car[key]) """
+    print(key, ":", car[key])
 
-""" cities = []
+cities = []
 flag = "y"
 while flag == "y":
     city = input("Ingrese una ciudad por favor: ")
@@ -137,10 +136,10 @@ def borrarCiudad(ciudad):
 
 ciudadBorrar = input("Ingrese la ciudad que desea eliminar de la lista: ")
 
-borrarCiudad(ciudadBorrar) """
+borrarCiudad(ciudadBorrar)
 
-
-""" class Vehiculo:
+#CLASSES
+class Vehiculo:
     def __init__(self, placa, marca, modelo, precio):
         self.__Placa = placa
         self.__Marca = marca
@@ -151,7 +150,7 @@ borrarCiudad(ciudadBorrar) """
         print(f"EL vehiculo tiene placas {self.__Placa}, su marca es {self.__Marca}, modelo {self.__Modelo} y tiene un valor comercial de {self.__Precio} pesos")
 
 Vehiculo1 = Vehiculo("ABC123", "Renault", "2021", 25000)
-Vehiculo1.informar() """
+Vehiculo1.informar()
 
 class Animal:
     def __init__(self, peso):

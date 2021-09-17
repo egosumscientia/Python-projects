@@ -7,19 +7,19 @@ class Vehiculo:
     def getMotor(self):
         return self.__motor
 
-    def setMotor(self):
+    def setMotor(self, motor):
         self.__motor = motor
 
     def getRuedas(self):
         return self.__nroruedas
 
-    def setRuedas(self):
+    def setRuedas(self, nroruedas):
         self.__nroruedas = nroruedas
     
     def getAsientos(self):
         return self.__nroasientos
     
-    def setAsientos(self):
+    def setAsientos(self, nroasientos):
         self.__nroasientos = nroasientos
 
     def arrancar(self):
