@@ -1,12 +1,12 @@
 1. Crear una carpeta para la aplicaci�n
 2. Instalar virtualenv de manera global 
-   en el sistema operativo:
+    en el sistema operativo:
 
 	pip install virtualenv
 
 3. Posicionarse en la carpeta del proyecto y
-   crear un entorno virtual con el nombre
-   env o puede tener otro nombre:
+    crear un entorno virtual con el nombre
+    env o puede tener otro nombre:
 
 	virtualenv -p python env 
 
@@ -195,7 +195,7 @@ if __name__ == "__main__":
       Valor Cuota: {{"$%.2f"|format(data.valorcuota)}}
     </span>
 
-   --- archivo login.html ---
+  --- archivo login.html ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -208,7 +208,7 @@ if __name__ == "__main__":
     <h2>{{user}}</h2>
 </body>
 </html>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
   </body>
 </html>
@@ -282,7 +282,7 @@ Refrescar el navegador para chequear su funcionamiento....
 	b. Crear, dentro de la carpeta static, crear la subcarpetas CSS y JS
 	c. Dentro de la carpeta CSS, crear el archivo layout.css y poner el siguiente c�digo
 		body{
-    			background-color: orange;
+      background-color: orange;
 		}
 	d. Ir a la plantilla layout.html e invocar este archivo con la siguiente instrucci�n:
 		<link rel="stylesheet" href="{{ url_for('static',filename='css/layout.css')}}">
@@ -301,7 +301,7 @@ Refrescar el navegador para chequear su funcionamiento....
 	a. Ir al archivo app.py y agregar la siguiente funci�n:
 
 		def pagina_no_encontrada(error):
-    			return render_template('404.html'),404
+    return render_template('404.html'),404
 
 	b. Crear el archivo 404.html, dentro de la carpeta templates, con el siguiente c�digo:
 		
@@ -309,7 +309,7 @@ Refrescar el navegador para chequear su funcionamiento....
 
 		{% block title %}Error! P�gina no Encontrada{% endblock %}
 		{% block body %}
-    			<h2>Ooops, p�gina no encontrada</h2>
+    <h2>Ooops, p�gina no encontrada</h2>
 		{% endblock %}
 	c. Hacer referencia al manejador de errores, realizando la siguiente instrucci�n, antes de app.run ...
 		(archivo app.py):
@@ -318,9 +318,9 @@ Refrescar el navegador para chequear su funcionamiento....
 	d. Se puede redireccionar este error de p�gina a una vista o funci�n, de la siguiente manera:
 		
 		def pagina_no_encontrada(error):
-    			#return render_template('404.html'),404
-    			# redireccionar a una vista o funci�n
-    			return redirect(url_for('index'))
+        #return render_template('404.html'),404
+        # redireccionar a una vista o funci�n
+        return redirect(url_for('index'))
 
 		Recordar poner la librer�a de url_for y redirect en el from ... import, as� por ejemplo:
 			from flask import Flask,render_template,url_for,redirect
@@ -331,12 +331,12 @@ Refrescar el navegador para chequear su funcionamiento....
 	
 	@app.before_request
 	def before_request():
-    		print("Antes de la petici�n")
+    print("Antes de la petici�n")
 
 	@app.after_request
 	def after_request(response):
-    		print("Despues de la petici�n")
-    		return response
+      print("Despues de la petici�n")
+      return response
 23. Mostrar informaci�n, en formato de json (API), de una tabla de base de datos:
 	a. Instalar, dentro del directorio virtual, el paquete de mysql:
 		pip install flask-mysqldb
@@ -357,18 +357,18 @@ Refrescar el navegador para chequear su funcionamiento....
 		
 		@app.route('/companies')
 		def listar_companies():
-    			data = {}
-    			try:
-        			cursor = conexion.connection.cursor()
-        			sql = "SELECT id, name, salary FROM employee ORDER BY name"
-        			cursor.execute(sql)
-        			companies = cursor.fetchall()
-        			# print(companies)
-        			# data['mensaje'] = 'Exito'
-				data['companies'] = companies
-    			except Exception as ex:    
-            			data['mensaje'] = 'Error ...'
-    			return jsonify(data) # recordar importar jsonify
+        data = {}
+        try:
+            cursor = conexion.connection.cursor()
+            sql = "SELECT id, name, salary FROM employee ORDER BY name"
+            cursor.execute(sql)
+            companies = cursor.fetchall()
+            # print(companies)
+            # data['mensaje'] = 'Exito'
+            data['companies'] = companies
+        except Exception as ex:    
+                data['mensaje'] = 'Error ...'
+        return jsonify(data) # recordar importar jsonify
 		
 		Actualizar el navegador ... y verificar....
 		https://www.youtube.com/watch?v=-1DmVCPB6H8&ab_channel=UskoKruM2010
