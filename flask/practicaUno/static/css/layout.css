@@ -1,5 +1,8 @@
 body{
     background-color:aliceblue;
+    padding: 0;
+    margin: 0;
+    height: 700px;
 }
 h2{
     color: blue;
@@ -28,6 +31,17 @@ h2{
     text-align: center;
 }
 
-.bodycontainer{
-    background-color: #33F9FF;
+.cuerpo{
+    height: 500px;
+}
+
+.footercont{
+    text-align: center;
+    font-size: 1.2rem;
+    color:gray;
+    background-color: bisque;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
 }
