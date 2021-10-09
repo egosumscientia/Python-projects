@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+Add User
+{% endblock %}
+{% block content %}
+<div class="container">
+    <section class="section">
+        <div class="columns">
+            <div class="column is-one-third">
+                <h3 class="is-size-3">Add user</h3>
+                <form action="{{url_for('update_user')}}" method="post">
+                    <input type="hidden" name="id" value="{{user[0]}}">
+                    <label for="nombre">Name:</label>
+                    <input required type="text" class="form-control" placeholder="Name" name="name" id="name" value="{{user[1]}}>
+                    <label for="email">Email:</label>
+                    <input required type="text" class="form-control" placeholder="Email" name="email" id="email" value="{{user[2]}}>
+                    <label for="phone">Phone:</label>
+                    <input required type="text" class="form-control" placeholder="Phone" name="phone" id="phone" value="{{user[3]}}>
+                    <label for="password">Password:</label>
+                    <input required type="text" class="form-control" placeholder="Password" name="password" id="password">
+                    <br>
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                    <a href="{{url_for('/')}}" class="btn btn-primary">Back</a>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
