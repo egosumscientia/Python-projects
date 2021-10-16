@@ -17,6 +17,15 @@ def index():
 def add_user_form():
     return render_template('add_user.html')
 
+@app.route('/add_user',methods=['POST'])
+def add_user():
+    name = request.form['name']
+    email = request.form['email']
+    phone = request.form['phone']
+    password = request.form['password']
+    user_controller.add_user(name,email,phone,password)
+    return redirect('/')
+
 #Get the user to edit
 @app.route('/edit_user/<int:id>')
 def edit_user(id):
@@ -36,8 +45,8 @@ def update_user():
 
 @app.route("/delete_user", methods=["POST"])
 def delete_user():
-    user_controller.deleter_user(request.form["id"])
-    return redirect("/index")
+    user_controller.deleter_user(request.form['id'])
+    return redirect('/index')
 
 # The server is running
 if __name__ == "__main__":
