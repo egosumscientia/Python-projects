@@ -19,16 +19,18 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
+                            <th>Number</th>
                             <th>Date</th>
+                            <th>id</th>
                             <th>Price</th>
                             <th>Balance</th>
-                            <th>id</th>
                             <th style="text-align: center;">ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for invoice in invoices %}
                         <tr>
+                            <td>{{invoice[0]}}</td>
                             <td>{{invoice[1]}}</td>
                             <td>{{invoice[2]}}</td>
                             <td>{{invoice[3]}}</td>
@@ -36,10 +38,10 @@
                             <td>
                                 {# Pasar el id (lo que hay en juego[0] #}
                                 <div id="btnwrap">
-                                    <a href="{{url_for('edit_invoice', id=invoice[0])}}"
+                                    <a href="{{url_for('edit_invoice', number=invoice[0])}}"
                                     class="btn btn-success">Edit</a>
                                     <form action="{{url_for('delete_invoice')}}" method="POST" onSubmit="return confirm('Are you sure?');">
-                                    <input type="hidden" name="id" value="{{invoice[0]}}">
+                                    <input type="hidden" name="number" value="{{invoice[0]}}">
                                     <button class="btn btn-danger">Delete</button>
                                 </form>
                                 </div>

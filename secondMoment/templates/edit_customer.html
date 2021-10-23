@@ -8,7 +8,7 @@ Edit Customer
         <div class="columns">
             <div class="column is-one-third">
                 <h3 class="is-size-3">Edit customer</h3>
-                <form action="{{url_for('update_customer')}}" method="post">
+                <form action="{{url_for('update_customer')}}" method="POST">
                     <input type="hidden" name="id" value="{{customer[0]}}">
                     <label for="name">Name:</label>
                     <input required type="text" class="form-control" placeholder="Name" name="name" id="name">

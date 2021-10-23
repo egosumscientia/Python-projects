@@ -35,7 +35,7 @@ def get_invoice_number(number):
     myConnection=get_connection()
     invoice=None
     with myConnection.cursor() as cursor:
-        cursor.execute("SELECT id, date, price, balance, number FROM invoice WHERE number=%s",(number))
+        cursor.execute("SELECT number, date, id, price, balance FROM invoice WHERE number=%s",(number))
         invoice=cursor.fetchone()
     myConnection.close()
     return invoice
