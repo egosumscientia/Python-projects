@@ -3,6 +3,8 @@ from flask import Flask, render_template, url_for, request
 from werkzeug.utils import redirect
 import customer_controller
 import invoice_controller
+import pyautogui
+
 
 app=Flask(__name__)
 
@@ -45,7 +47,14 @@ def update_customer():
 
 @app.route("/delete_customer", methods=["POST"])
 def delete_customer():
-    customer_controller.deleter_customer(request.form['id'])
+    id = request.form['id']
+    invoice = customer_controller.check_if_invoices(id)
+    print(invoice)
+    if(invoice):
+        pyautogui.alert(text='You have pending invoices', title='ERROR', button='OK')
+        print("You have pending invoices")
+    else:
+        customer_controller.delete_customer(id)
     return redirect('/index')
 
 
@@ -65,7 +74,13 @@ def add_invoice():
     id = request.form['id']
     price = request.form['price']
     balance = request.form['balance']
-    invoice_controller.add_invoice(date,id,price,balance)
+    isvalidid = invoice_controller.check_customer_id(id)
+    print(isvalidid)
+    if(isvalidid):
+        invoice_controller.add_invoice(date,id,price,balance)
+    else:
+        pyautogui.alert(text='The customer does not exist', title='ERROR', button='OK')
+        print("The customer does not exist")
     return redirect('/invoice')
 
 #Get the invoice to edit
@@ -79,15 +94,22 @@ def update_invoice():
     #Get data from the invoked form
     number = request.form['number']
     date = request.form['date']
-    id = request.form['id']
     price = request.form['price']
     balance = request.form['balance']
-    invoice_controller.update_invoice(date,id,price,balance,number)
+    invoice_controller.update_invoice(date,price,balance,number)
     return redirect('/invoice')
 
 @app.route("/delete_invoice", methods=["POST"])
 def delete_invoice():
-    invoice_controller.delete_invoice(request.form['number'])
+    number = request.form['number']
+    balance=invoice_controller.check_balance(number)
+    print(balance[0])
+    real_balance=balance[0]
+    if(real_balance==0):
+        invoice_controller.delete_invoice(number)
+    else:
+        pyautogui.alert(text='you must pay the remaining balance first', title='ERROR', button='OK')
+        print("you must pay the remaining balance first")
     return redirect('/invoice')
 
 

@@ -14,7 +14,7 @@ def update_customer(name, status, mobile, id):
     myConnection.commit()
     myConnection.close()
 
-def deleter_customer(id):
+def delete_customer(id):
     myConnection = get_connection()
     with myConnection.cursor() as cursor:
         cursor.execute("DELETE from customer WHERE id=%s",(id))
@@ -38,3 +38,12 @@ def get_customer_id(id):
         customer=cursor.fetchone()
     myConnection.close()
     return customer
+
+def check_if_invoices(id):
+    myConnection=get_connection()
+    invoice=None
+    with myConnection.cursor() as cursor:
+        cursor.execute("SELECT number, date, id, price, balance FROM invoice WHERE id=%s",(id))
+        invoice=cursor.fetchall()
+    myConnection.close()
+    return invoice
