@@ -5,7 +5,6 @@ import customer_controller
 import invoice_controller
 import pyautogui
 
-
 app=Flask(__name__)
 
 """
