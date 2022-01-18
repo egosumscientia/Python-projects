@@ -1,6 +1,3 @@
-from ctypes.wintypes import WORD
-from pickle import TRUE
-#from re import S
 from tkinter.filedialog import *
 import tkinter as tk
 
