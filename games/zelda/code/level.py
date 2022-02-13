@@ -8,6 +8,7 @@ from random import choice
 from weapon import Weapon
 from ui import UI
 
+
 class Level:
     def __init__(self):
 
@@ -57,10 +58,17 @@ class Level:
                             surf = graphics['objects'][int(col)]
                             Tile((x, y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)
 
-        self.player = Player((2000, 1430), [self.visible_sprites], self.obstacle_sprites, self.create_attack, self.destroy_attack)
+        self.player = Player((2000, 1430), [self.visible_sprites], self.obstacle_sprites, self.create_attack,
+                             self.destroy_attack, self.create_magic)
+
 
     def create_attack(self):
         self.current_attack = Weapon(self.player, [self.visible_sprites])
+
+    def create_magic(self, style, strength, cost):
+        print(style)
+        print(strength)
+        print(cost)
 
     def destroy_attack(self):
         if self.current_attack:

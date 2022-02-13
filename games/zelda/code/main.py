@@ -11,9 +11,11 @@ Discord - https://discord.com/invite/a5C6pYw2w5
 
 https://www.youtube.com/watch?v=QU1pPzEGrqw&t=1s '''
 
-import pygame, sys
-from settings import *
+import pygame
+import sys
+
 from level import Level
+from settings import *
 
 
 class Game:
