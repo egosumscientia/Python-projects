@@ -4,7 +4,8 @@ from sqlalchemy.orm import Session
 from ..database import get_db
 
 router = APIRouter(
-    prefix="/users"
+    prefix="/users",
+    tags=['Users']
 )
 
 
@@ -13,7 +14,6 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     # hash the password - user.password
     hashed_password = utils.hash(user.password)
     user.password = hashed_password
-
     new_user = models.User(**user.dict())
     db.add(new_user)
     db.commit()
