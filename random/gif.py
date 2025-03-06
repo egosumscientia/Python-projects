@@ -1,4 +1,4 @@
-from moviepy.editor import VideoFileClip
+import moviepy.editor
 from tkinter.filedialog import *
 
 from numpy import clip
