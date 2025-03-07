@@ -1,6 +1,7 @@
 import moviepy.editor
 from tkinter.filedialog import *
 
+from moviepy import VideoFileClip
 from numpy import clip
 
 video = askopenfilename();
