@@ -1,4 +1,4 @@
-##### VERISION POO #####
+##### VERSION POO #####
 from Practice.Classes_examples import cuenta
 
 

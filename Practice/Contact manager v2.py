@@ -1,6 +1,4 @@
 import json
-from collections import namedtuple
-
 
 class Contact:
     """Represents a contact with a name, phone, and email."""
