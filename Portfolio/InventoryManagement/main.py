@@ -11,6 +11,7 @@ from sklearn.linear_model import LinearRegression
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.responses import JSONResponse
 from datetime import datetime, timezone, timedelta
+import numpy as np
 
 
 app = FastAPI()
@@ -132,7 +133,7 @@ def predict_demand(product_id: int, _: str = Depends(verify_token)):
         raise HTTPException(status_code=400, detail="Not enough data to make a prediction")
 
     df = pd.DataFrame(data, columns=["timestamp", "quantity"])
-    df["timestamp"] = pd.to_datetime(df["timestamp"]).astype(int) // 10 ** 9  # Convert to Unix timestamp
+    df["timestamp"] = pd.to_datetime(df["timestamp"]).view(int) // 10 ** 9  # Convert to Unix timestamp
     X = df[["timestamp"]]
     y = df["quantity"]
 
@@ -140,7 +141,7 @@ def predict_demand(product_id: int, _: str = Depends(verify_token)):
     model.fit(X, y)
 
     future_timestamp = (datetime.now(timezone.utc).timestamp() + 86400)  # Predict for the next day
-    predicted_demand = model.predict([[future_timestamp]])[0]
+    predicted_demand = model.predict(np.array([[future_timestamp]]))[0]
 
     # Generate plot
     plt.figure(figsize=(8, 5))
